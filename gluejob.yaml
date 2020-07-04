@@ -1,0 +1,25 @@
+Metadata:
+    'AWS::CloudFormation::Designer':
+      8af2f432-c734-4d0b-9889-1fa86c677913:
+        size:
+          width: 60
+          height: 60
+        position:
+          x: -114.50000304232042
+          y: -31.333334018786747
+        z: 0
+        embeds: []
+Resources:
+    AWSGlueJob:
+        Type: AWS::Glue::Job
+        Properties:
+          Command:
+              Name: pythonshell
+              ScriptLocation: "s3://glue-demo-bucket-ekta/XML_CSV_Python.py"
+          DefaultArguments:
+              "--job-bookmark-option": "job-bookmark-enable"
+          ExecutionProperty:
+              MaxConcurrentRuns: 2
+          MaxRetries: 0
+          Name: "CICDeploymentnew"
+          Role: "arn:aws:iam::953915571996:role/AWSGlueServiceRole-glue-demo-ekta"
